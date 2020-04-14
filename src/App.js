@@ -147,7 +147,7 @@ class App extends Component {
     	      <label for="mertenHall">Merten Hall</label><br/>
     	      <input type="radio"  onChange={this.handleOptionChange} id="other" name="bestLocation" value="other" />
     	      <label for="other">Other</label>
-            <input type="text" id="otherText" name="bestLocation" style={{display:'none'}} />
+            <input type="text" id="otherText" name="bestLocation" style={{display:'none'}} placeholder="Favorite place on campus to get food" />
     	      <br/>
 
     	      <br/>
