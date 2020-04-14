@@ -56,11 +56,26 @@
 import React, { Component } from "react";
 
 class App extends Component {
+  // constructor(props) {
+  //   super(props);
+  //   // var otherText = document.getElementById('otherText');
+  // }
+
+  handleOptionChange = changeEvent => {
+    var otherText = document.getElementById('otherText');
+      if(changeEvent.target.value === "other") {
+        otherText.style.display='block'
+      } else {
+        otherText.style.display='none'
+      }
+  };
+
+
   render() {
     return (
       <div id = "container">
         <head>
-    			<title>Assignment 5</title>
+    			<title>Assignment 7</title>
     		</head>
         <div>
           <h1>Abhilaash Velamati and Edwin Ahn</h1>
@@ -126,12 +141,13 @@ class App extends Component {
     	      Best location on campus for food
     	      <br/>
 
-    	      <input type="radio" id="jc" name="bestLocation" value="jc"/>
+    	      <input type="radio"  onChange={this.handleOptionChange} id="jc" name="bestLocation" value="jc" />
     	      <label for="jc">Johnson Center</label><br/>
-    	      <input type="radio" id="mertenHall" name="bestLocation" value="mertenHall"/>
+    	      <input type="radio"  onChange={this.handleOptionChange} id="mertenHall" name="bestLocation" value="mertenHall" />
     	      <label for="mertenHall">Merten Hall</label><br/>
-    	      <input type="radio" id="other" name="bestLocation" value="other"/>
+    	      <input type="radio"  onChange={this.handleOptionChange} id="other" name="bestLocation" value="other" />
     	      <label for="other">Other</label>
+            <input type="text" id="otherText" name="bestLocation" style={{display:'none'}} />
     	      <br/>
 
     	      <br/>
