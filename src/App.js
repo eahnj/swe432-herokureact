@@ -63,7 +63,7 @@ class App extends Component {
 
   handleOptionChange = changeEvent => {
     var otherText = document.getElementById('otherText');
-      if(changeEvent.target.value === "other") {
+      if(changeEvent.target.value === "otherLocation") {
         otherText.style.display='block'
       } else {
         otherText.style.display='none'
@@ -145,8 +145,8 @@ class App extends Component {
     	      <label for="jc">Johnson Center</label><br/>
     	      <input type="radio"  onChange={this.handleOptionChange} id="mertenHall" name="bestLocation" value="mertenHall" />
     	      <label for="mertenHall">Merten Hall</label><br/>
-    	      <input type="radio"  onChange={this.handleOptionChange} id="other" name="bestLocation" value="other" />
-    	      <label for="other">Other</label>
+    	      <input type="radio"  onChange={this.handleOptionChange} id="otherLocation" name="bestLocation" value="otherLocation" />
+    	      <label for="otherLocation">Other</label>
             <input type="text" id="otherText" name="bestLocation" style={{display:'none'}}  />
     	      <br/>
 
