@@ -7,17 +7,48 @@
 // import Hooks, {aFunc} from './components/Hooks';
 // import ToggleButtons from './components/ToggleButtons';
 //
-// const publicURL = 'https://swe432tomcat.herokuapp.com';
-// export const getLocationUrlData = () => {
-//   return {
-//       url:
-//           process.env.NODE_ENV === 'production'?
-//           publicURL
-//           :`${window.location.origin}`,
-//       hash: `${window.location.hash}`
-//   };
-// };
-// export const servicePath ='/echo';
+import React, { useState, Component } from "react";
+
+const publicURL = 'https://swe432tomcat.herokuapp.com';
+const body = `bestPizza=${bestPizza}&serviceSpeedManhattan=${serviceSpeedManhattan}&serviceSpeedBlaze=${serviceSpeedBlaze}&bestLocation=${bestLocation}`;
+// const [response, setResponse] = useState(null);
+var response = null;
+// var setResponse = null;
+var bestPizza = null;
+var serviceSpeedManhattan = null;
+var serviceSpeedBlaze = null;
+var bestLocation = null;
+export const getLocationUrlData = () => {
+  return {
+      url:
+          process.env.NODE_ENV === 'production'?
+          publicURL
+          :`${window.location.origin}`,
+      hash: `${window.location.hash}`
+  };
+};
+export const servicePath ='/echo';
+
+
+const fetchData= async()=>{
+      const res = await fetch(getLocationUrlData,
+        {
+          method: 'POST', // *GET, POST, PUT, DELETE, etc.
+          mode: 'cors', // no-cors, *cors, same-origin
+          cache: 'no-cache', // *default, no-cache, reload, force-cache, only-if-cached
+          //credentials: 'same-origin', // include, *same-origin, omit
+          headers: {
+            // 'Content-Type': 'application/json'
+            'Content-Type': 'application/x-www-form-urlencoded',
+          },
+          //redirect: 'follow', // manual, *follow, error
+          //referrerPolicy: 'no-referrer', // no-referrer, *client
+          body  // body data type must match "Content-Type" header
+        }
+      );
+      const json = await res.json();
+      response = json;
+    }
 //
 // function App(props) {
 //   const [weekDay, setWeekDay] = React.useState("Monday");
@@ -53,7 +84,6 @@
 // export default App;
 
 
-import React, { Component } from "react";
 
 class App extends Component {
   // constructor(props) {
@@ -62,16 +92,30 @@ class App extends Component {
   // }
 
   handleOptionChange = changeEvent => {
-    var otherText = document.getElementById('otherText');
+    if(changeEvent.target.name === "bestPizza") {
+      bestPizza = changeEvent.target.value;
+    }
+    if(changeEvent.target.name === "serviceSpeedManhattan") {
+      serviceSpeedManhattan = changeEvent.target.value;
+    }
+    if(changeEvent.target.name === "serviceSpeedBlaze") {
+      serviceSpeedBlaze = changeEvent.target.value;
+    }
+    if(changeEvent.target.name === "bestLocation") {
+      bestLocation = changeEvent.target.value;
+      var otherText = document.getElementById('otherText');
       if(changeEvent.target.value === "otherLocation") {
         otherText.style.display='block'
       } else {
         otherText.style.display='none'
       }
+    }
   };
 
 
   render() {
+    // const [bestPizza, serviceSpeedManhattan, serviceSpeedBlaze, bestLocation] = React.useState();
+
     return (
       <div id = "container">
         <head>
@@ -101,25 +145,23 @@ class App extends Component {
           <br/>
     			<div id = "formQuestions">
     	      <form method="post">
-    	      <input type="radio" id="manhattan" name="bestPizza" value="manhattan" />
+    	      <input type="radio" onChange={this.handleOptionChange} id="manhattan" name="bestPizza" value="manhattan" />
     	      <label for="manhattan">Manhattan Pizza</label><br/>
-    	      <input type="radio" id="blaze" name="bestPizza" value="blaze" />
+    	      <input type="radio"  onChange={this.handleOptionChange} id="blaze" name="bestPizza" value="blaze" />
     	      <label for="blaze">Blaze Pizza</label><br/>
-    	      <input type="radio" id="other" name="bestPizza" value="other" />
-    	      <label for="other">Other</label>
     	      <br/>
     	      <br/>
 
     	      Service Speed at Manhattan
     	      <br/>
 
-    	      <input type="radio" id="fiveMinutesManhattan" name="serviceSpeedManhattan" value="fiveMinutesManhattan"/>
+    	      <input type="radio" onChange={this.handleOptionChange} id="fiveMinutesManhattan" name="serviceSpeedManhattan" value="fiveMinutesManhattan"/>
     	      <label for="fiveMinutesManhattan">05 minutes or less</label><br/>
-    	      <input type="radio" id="tenMinutesManhattan" name="serviceSpeedManhattan" value="tenMinutesManhattan"/>
+    	      <input type="radio" onChange={this.handleOptionChange} id="tenMinutesManhattan" name="serviceSpeedManhattan" value="tenMinutesManhattan"/>
     	      <label for="tenMinutesManhattan">10 minutes</label><br/>
-    	      <input type="radio" id="fifteenMinutesManhattan" name="serviceSpeedManhattan" value="fifteenMinutesManhattan"/>
+    	      <input type="radio" onChange={this.handleOptionChange} id="fifteenMinutesManhattan" name="serviceSpeedManhattan" value="fifteenMinutesManhattan"/>
     	      <label for="fifteenMinutesManhattan">15 minutes</label><br/>
-    	      <input type="radio" id="thirtyMinutesManhattan" name="serviceSpeedManhattan" value="thirtyMinutesManhattan"/>
+    	      <input type="radio" onChange={this.handleOptionChange} id="thirtyMinutesManhattan" name="serviceSpeedManhattan" value="thirtyMinutesManhattan"/>
     	      <label for="thirtyMinutesManhattan">30 minutes or more</label><br/>
     	      <br/>
     	      <br/>
@@ -127,13 +169,13 @@ class App extends Component {
     	      Service Speed at Blaze
     	      <br/>
 
-    	      <input type="radio" id="fiveMinutesBlaze" name="serviceSpeedBlaze" value="fiveMinutesBlaze"/>
+    	      <input type="radio" onChange={this.handleOptionChange} id="fiveMinutesBlaze" name="serviceSpeedBlaze" value="fiveMinutesBlaze"/>
     	      <label for="fiveMinutesBlaze">05 minutes or less</label><br/>
-    	      <input type="radio" id="tenMinutesBlaze" name="serviceSpeedBlaze" value="tenMinutesBlaze"/>
+    	      <input type="radio" onChange={this.handleOptionChange} id="tenMinutesBlaze" name="serviceSpeedBlaze" value="tenMinutesBlaze"/>
     	      <label for="tenMinutesBlaze">10 minutes</label><br/>
-    	      <input type="radio" id="fifteenMinutesBlaze" name="serviceSpeedBlaze" value="fifteenMinutesBlaze"/>
+    	      <input type="radio" onChange={this.handleOptionChange} id="fifteenMinutesBlaze" name="serviceSpeedBlaze" value="fifteenMinutesBlaze"/>
     	      <label for="fifteenMinutesBlaze">15 minutes</label><br/>
-    	      <input type="radio" id="thirtyMinutesBlaze" name="serviceSpeedBlaze" value="thirtyMinutesBlaze"/>
+    	      <input type="radio" onChange={this.handleOptionChange} id="thirtyMinutesBlaze" name="serviceSpeedBlaze" value="thirtyMinutesBlaze"/>
     	      <label for="thirtyMinutesBlaze">30 minutes or more</label><br/>
     	      <br/>
     	      <br/>
@@ -147,11 +189,11 @@ class App extends Component {
     	      <label for="mertenHall">Merten Hall</label><br/>
     	      <input type="radio"  onChange={this.handleOptionChange} id="otherLocation" name="bestLocation" value="otherLocation" />
     	      <label for="otherLocation">Other</label>
-            <input type="text" id="otherText" name="bestLocation" style={{display:'none'}} placeholder="Favorite place on campus to get food" />
+            <input type="text" id="otherText" name="bestLocation" style={{display:'none'}} placeholder="Favorite food location" />
     	      <br/>
 
     	      <br/>
-    	      <input type="submit" value="Submit" />
+    	      <input type="submit" value="Submit" onClick={this.fetchData} />
 
     	      </form>
     			</div>
