@@ -18,6 +18,7 @@ var bestPizza = null;
 var serviceSpeedManhattan = null;
 var serviceSpeedBlaze = null;
 var bestLocation = null;
+// var bestLocationInput = null;
 export const getLocationUrlData = () => {
   return {
       url:
@@ -30,6 +31,9 @@ export const getLocationUrlData = () => {
 
 
 const fetchData= async()=>{
+      if(bestLocation === "otherText") {
+        bestLocation = document.getElementById('otherText').value;
+      }
       const res = await fetch(publicURL,
         {
           method: 'POST', // *GET, POST, PUT, DELETE, etc.
