@@ -9,7 +9,7 @@
 //
 import React, { useState, Component } from "react";
 
-const publicURL = 'https://swe432tomcat.herokuapp.com';
+const publicURL = 'https://swe432tomcat.herokuapp.com/echo';
 const body = `bestPizza=${bestPizza}&serviceSpeedManhattan=${serviceSpeedManhattan}&serviceSpeedBlaze=${serviceSpeedBlaze}&bestLocation=${bestLocation}`;
 // const [response, setResponse] = useState(null);
 var response = null;
@@ -27,11 +27,10 @@ export const getLocationUrlData = () => {
       hash: `${window.location.hash}`
   };
 };
-export const servicePath ='/echo';
 
 
 const fetchData= async()=>{
-      const res = await fetch(getLocationUrlData,
+      const res = await fetch(publicURL,
         {
           method: 'POST', // *GET, POST, PUT, DELETE, etc.
           mode: 'cors', // no-cors, *cors, same-origin
