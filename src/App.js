@@ -9,6 +9,7 @@
 //
 import React, { useState, Component } from "react";
 import Skeleton from '@material-ui/lab/Skeleton';
+import { Paper, Button, Grid } from '@material-ui/core';
 
 const publicURL = 'https://swe432-servlet.herokuapp.com';
 // const [response, setResponse] = useState(null);
@@ -139,7 +140,7 @@ class App extends Component {
           that access the BOM. Abhilaash worked on the BOM while Edwin worked on the forms.
     			</p>
           <br/>
-          <input type="button" value="Back" onclick="goBack()"/>
+          <input type="button" value="Back" onClick="goBack()"/>
           <p id="pageLocation"></p>
     			<p>
           <br/>
@@ -151,7 +152,6 @@ class App extends Component {
           Best pizza on campus
           <br/>
     			<div id = "formQuestions">
-    	      <form method="post">
     	      <input type="radio" onChange={this.handleOptionChange} id="manhattan" name="bestPizza" value="manhattan" />
     	      <label for="manhattan">Manhattan Pizza</label><br/>
     	      <input type="radio"  onChange={this.handleOptionChange} id="blaze" name="bestPizza" value="blaze" />
@@ -200,9 +200,9 @@ class App extends Component {
     	      <br/>
 
     	      <br/>
-    	      <input type="submit" value="Submit" onClick={this.fetchData} />
+            <Button onClick={this.fetchData} variant="contained" color="primary" data-something="submit">
+                 submit</Button>
 
-    	      </form>
     			</div>
 
           <script>
