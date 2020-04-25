@@ -1,7 +1,6 @@
 // import React from 'react';
 // import Paper from '@material-ui/core/Paper';
 // import Grid from '@material-ui/core/Grid';
-import Skeleton from '@material-ui/lab/Skeleton';
 //
 // import './App.css';
 // import Fetcher from './components/Fetcher';
@@ -9,10 +8,13 @@ import Skeleton from '@material-ui/lab/Skeleton';
 // import ToggleButtons from './components/ToggleButtons';
 //
 import React, { useState, Component } from "react";
+import Skeleton from '@material-ui/lab/Skeleton';
 
-const publicURL = 'https://swe432-servlet.herokuapp.com/echo';
+const publicURL = 'https://swe432tomcat.herokuapp.com/echo';
 const body = `bestPizza=${bestPizza}&serviceSpeedManhattan=${serviceSpeedManhattan}&serviceSpeedBlaze=${serviceSpeedBlaze}&bestLocation=${bestLocation}`;
+// const [response, setResponse] = useState(null);
 var response = null;
+// var setResponse = null;
 var bestPizza = null;
 var serviceSpeedManhattan = null;
 var serviceSpeedBlaze = null;
@@ -29,6 +31,28 @@ export const getLocationUrlData = () => {
 };
 
 
+const fetchData= async()=>{
+      if(bestLocation === "otherText") {
+        bestLocation = document.getElementById('otherText').value;
+      }
+      const res = await fetch(publicURL,
+        {
+          method: 'POST', // *GET, POST, PUT, DELETE, etc.
+          mode: 'cors', // no-cors, *cors, same-origin
+          cache: 'no-cache', // *default, no-cache, reload, force-cache, only-if-cached
+          //credentials: 'same-origin', // include, *same-origin, omit
+          headers: {
+            // 'Content-Type': 'application/json'
+            'Content-Type': 'application/x-www-form-urlencoded',
+          },
+          //redirect: 'follow', // manual, *follow, error
+          //referrerPolicy: 'no-referrer', // no-referrer, *client
+          body  // body data type must match "Content-Type" header
+        }
+      );
+      const json = await res.json();
+      response = json;
+    }
 //
 // function App(props) {
 //   const [weekDay, setWeekDay] = React.useState("Monday");
@@ -66,38 +90,10 @@ export const getLocationUrlData = () => {
 
 
 class App extends Component {
-  constructor(props) {
-    super(props);
-    bestPizza = null;
-    serviceSpeedManhattan = null;
-    serviceSpeedBlaze = null;
-    bestLocation = null;
-    const [response, setResponse] = useState(null);
-    
-    const fetchData= async()=>{
-          if(bestLocation === "otherText") {
-            bestLocation = document.getElementById('otherText').value;
-          }
-          const res = await fetch(publicURL,
-            {
-              method: 'POST', // *GET, POST, PUT, DELETE, etc.
-              mode: 'cors', // no-cors, *cors, same-origin
-              cache: 'no-cache', // *default, no-cache, reload, force-cache, only-if-cached
-              //credentials: 'same-origin', // include, *same-origin, omit
-              headers: {
-                // 'Content-Type': 'application/json'
-                'Content-Type': 'application/x-www-form-urlencoded',
-              },
-              //redirect: 'follow', // manual, *follow, error
-              //referrerPolicy: 'no-referrer', // no-referrer, *client
-              body  // body data type must match "Content-Type" header
-            }
-          );
-          const json = await res.json();
-          setResponse(json);
-        }
-
-  }
+  // constructor(props) {
+  //   super(props);
+  //   // var otherText = document.getElementById('otherText');
+  // }
 
   handleOptionChange = changeEvent => {
     if(changeEvent.target.name === "bestPizza") {
