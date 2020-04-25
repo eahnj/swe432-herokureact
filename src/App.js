@@ -10,7 +10,7 @@
 import React, { useState, Component } from "react";
 import Skeleton from '@material-ui/lab/Skeleton';
 
-const publicURL = 'https://swe432tomcat.herokuapp.com/echo';
+const publicURL = 'https://swe432-servlet.herokuapp.com//echo';
 const body = `bestPizza=${bestPizza}&serviceSpeedManhattan=${serviceSpeedManhattan}&serviceSpeedBlaze=${serviceSpeedBlaze}&bestLocation=${bestLocation}`;
 // const [response, setResponse] = useState(null);
 var response = null;
