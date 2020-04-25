@@ -71,10 +71,11 @@ const url = `${getLocationUrlData().url}${servicePath}`;
 
 
 class App extends Component {
-  // constructor(props) {
-  //   super(props);
-  //   // var otherText = document.getElementById('otherText');
-  // }
+  constructor(props) {
+    super(props);
+    this.state = {response: null};
+    // var otherText = document.getElementById('otherText');
+  }
 
   handleOptionChange = changeEvent => {
     if(changeEvent.target.name === "bestPizza") {
@@ -102,7 +103,7 @@ class App extends Component {
           bestLocation = document.getElementById('otherText').value;
         }
         const body = `bestPizza=${bestPizza}&serviceSpeedManhattan=${serviceSpeedManhattan}&serviceSpeedBlaze=${serviceSpeedBlaze}&bestLocation=${bestLocation}`;
-  
+
         console.log("Before fetch");
         const res = await fetch(url,
           {
@@ -123,7 +124,6 @@ class App extends Component {
         console.log(json)
         response = json;
   }
-
 
   render() {
     // const [bestPizza, serviceSpeedManhattan, serviceSpeedBlaze, bestLocation] = React.useState();
