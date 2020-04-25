@@ -147,14 +147,14 @@ class App extends Component {
     			</p>
         </div>
 
-          Best pizza on campus
-          <br/>
     			<div id = "formQuestions">
+            Best pizza on campus
+            <br/>
+
     	      <input type="radio" onChange={this.handleOptionChange} id="manhattan" name="bestPizza" value="manhattan" />
     	      <label htmlFor="manhattan">Manhattan Pizza</label><br/>
     	      <input type="radio"  onChange={this.handleOptionChange} id="blaze" name="bestPizza" value="blaze" />
     	      <label htmlFor="blaze">Blaze Pizza</label><br/>
-    	      <br/>
     	      <br/>
 
     	      Service Speed at Manhattan
@@ -169,7 +169,6 @@ class App extends Component {
     	      <input type="radio" onChange={this.handleOptionChange} id="thirtyMinutesManhattan" name="serviceSpeedManhattan" value="thirtyMinutesManhattan"/>
     	      <label htmlFor="thirtyMinutesManhattan">30 minutes or more</label><br/>
     	      <br/>
-    	      <br/>
 
     	      Service Speed at Blaze
     	      <br/>
@@ -182,7 +181,6 @@ class App extends Component {
     	      <label htmlFor="fifteenMinutesBlaze">15 minutes</label><br/>
     	      <input type="radio" onChange={this.handleOptionChange} id="thirtyMinutesBlaze" name="serviceSpeedBlaze" value="thirtyMinutesBlaze"/>
     	      <label htmlFor="thirtyMinutesBlaze">30 minutes or more</label><br/>
-    	      <br/>
     	      <br/>
 
     	      Best location on campus for food
