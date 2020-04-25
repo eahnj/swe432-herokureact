@@ -88,10 +88,10 @@ const fetchData= async()=>{
 
 
 class App extends Component {
-  constructor(props) {
-    super(props);
-    const [response, setResponse] = useState(null);
-  }
+  // constructor(props) {
+  //   super(props);
+  //   const [response, setResponse] = useState(null);
+  // }
 
   handleOptionChange = changeEvent => {
     if(changeEvent.target.name === "bestPizza") {
