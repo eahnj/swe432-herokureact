@@ -20,7 +20,7 @@ var serviceSpeedBlaze = null;
 var bestLocation = null;
 // var bestLocationInput = null;
 
-const body = `bestPizza=${bestPizza}&serviceSpeedManhattan=${serviceSpeedManhattan}&serviceSpeedBlaze=${serviceSpeedBlaze}&bestLocation=${bestLocation}`;publ
+const body = `bestPizza=${bestPizza}&serviceSpeedManhattan=${serviceSpeedManhattan}&serviceSpeedBlaze=${serviceSpeedBlaze}&bestLocation=${bestLocation}`;
 export const getLocationUrlData = () => {
   return {
       url:
@@ -32,11 +32,12 @@ export const getLocationUrlData = () => {
 };
 export const servicePath ='/echo';
 
+const url = `${getLocationUrlData().url}${servicePath}`;
+
 const fetchData= async()=>{
       if(bestLocation === "otherText") {
         bestLocation = document.getElementById('otherText').value;
       }
-      url={`${getLocationUrlData().url}${servicePath}`}
       const res = await fetch(url,
         {
           method: 'POST', // *GET, POST, PUT, DELETE, etc.
