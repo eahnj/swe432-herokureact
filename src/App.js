@@ -1,24 +1,12 @@
-// import React from 'react';
-// import Paper from '@material-ui/core/Paper';
-// import Grid from '@material-ui/core/Grid';
-//
-// import './App.css';
-// import Fetcher from './components/Fetcher';
-// import Hooks, {aFunc} from './components/Hooks';
-// import ToggleButtons from './components/ToggleButtons';
-//
+/
 import React, { Component } from "react";
 import { Paper, Button } from '@material-ui/core';
 
 const publicURL = 'https://swe432-servlet.herokuapp.com';
-// const [response, setResponse] = useState(null);
-// var response = null;
-// var setResponse = null;
 var bestPizza = null;
 var serviceSpeedManhattan = null;
 var serviceSpeedBlaze = null;
 var bestLocation = null;
-// var bestLocationInput = null;
 
 export const getLocationUrlData = () => {
   return {
@@ -32,41 +20,6 @@ export const getLocationUrlData = () => {
 export const servicePath ='/echo';
 
 const url = `${getLocationUrlData().url}${servicePath}`;
-
-//
-// function App(props) {
-//   const [weekDay, setWeekDay] = React.useState("Monday");
-//   return (
-//     <div style={{flexGrow: 1}}>
-//       <Grid
-//       container
-//       direction="column"
-//       justify="center"
-//       alignItems="stretch"
-//       spacing={2}
-//       >
-//         <Grid item xs>
-//           <Paper elevation={1}>
-//             <Hooks name={aFunc().name}/>
-//             </Paper>
-//         </Grid>
-//         <Grid item xs>
-//           <Paper elevation={1}>
-//             <Fetcher  value={weekDay} url={`${getLocationUrlData().url}${servicePath}`}/>
-//             </Paper>
-//           </Grid>
-//         <Grid item xs>
-//           <Paper elevation={1}>
-//             <ToggleButtons value={weekDay} onChange ={setWeekDay}/>
-//           </Paper>
-//           </Grid>
-//       </Grid>
-//     </div>
-//   );
-// }
-//
-// export default App;
-
 
 
 class App extends Component {
@@ -99,7 +52,6 @@ class App extends Component {
   fetchData = async()=>{
         if(bestLocation === "otherLocation") {
           bestLocation = document.getElementById('otherText').value;
-          console.log(document.getElementById('otherText').value)
         }
         const body = `bestPizza=${bestPizza}&serviceSpeedManhattan=${serviceSpeedManhattan}&serviceSpeedBlaze=${serviceSpeedBlaze}&bestLocation=${bestLocation}`;
 
@@ -125,8 +77,6 @@ class App extends Component {
   }
 
   render() {
-    // const [bestPizza, serviceSpeedManhattan, serviceSpeedBlaze, bestLocation] = React.useState();
-
     return (
       <div id = "container">
         <div>
