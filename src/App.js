@@ -98,7 +98,7 @@ class App extends Component {
     }
   };
 
-  fetchData= async()=>{
+  fetchData = async()=>{
         if(bestLocation === "otherText") {
           bestLocation = document.getElementById('otherText').value;
         }
@@ -122,7 +122,7 @@ class App extends Component {
         );
         const json = await res.json();
         console.log(json)
-        this.state.response = json;
+        this.setState({response: json});
   }
 
   render() {
