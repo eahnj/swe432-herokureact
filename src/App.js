@@ -7,9 +7,8 @@
 // import Hooks, {aFunc} from './components/Hooks';
 // import ToggleButtons from './components/ToggleButtons';
 //
-import React, { useState, Component } from "react";
-import Skeleton from '@material-ui/lab/Skeleton';
-import { Paper, Button, Grid } from '@material-ui/core';
+import React, { Component } from "react";
+import { Paper, Button } from '@material-ui/core';
 
 const publicURL = 'https://swe432-servlet.herokuapp.com';
 // const [response, setResponse] = useState(null);
@@ -130,9 +129,6 @@ class App extends Component {
 
     return (
       <div id = "container">
-        <head>
-    			<title>Assignment 7</title>
-    		</head>
         <div>
           <h1>Abhilaash Velamati and Edwin Ahn</h1>
           <h2> Assignment 7 </h2>
@@ -140,11 +136,9 @@ class App extends Component {
         <div>
           <br/>
     			<p>
-          Collaboration Summary: It has a few forms and two javascripts functions
-          that access the BOM. Abhilaash worked on the BOM while Edwin worked on the forms.
+          Assignment 7 Collaboration Summary: Abhilaash worked on the React JS front end and Edwin worked on the tomcat backend.
     			</p>
           <br/>
-          <input type="button" value="Back" onClick="goBack()"/>
           <p id="pageLocation"></p>
     			<p>
           <br/>
@@ -157,9 +151,9 @@ class App extends Component {
           <br/>
     			<div id = "formQuestions">
     	      <input type="radio" onChange={this.handleOptionChange} id="manhattan" name="bestPizza" value="manhattan" />
-    	      <label for="manhattan">Manhattan Pizza</label><br/>
+    	      <label htmlFor="manhattan">Manhattan Pizza</label><br/>
     	      <input type="radio"  onChange={this.handleOptionChange} id="blaze" name="bestPizza" value="blaze" />
-    	      <label for="blaze">Blaze Pizza</label><br/>
+    	      <label htmlFor="blaze">Blaze Pizza</label><br/>
     	      <br/>
     	      <br/>
 
@@ -167,13 +161,13 @@ class App extends Component {
     	      <br/>
 
     	      <input type="radio" onChange={this.handleOptionChange} id="fiveMinutesManhattan" name="serviceSpeedManhattan" value="fiveMinutesManhattan"/>
-    	      <label for="fiveMinutesManhattan">05 minutes or less</label><br/>
+    	      <label htmlFor="fiveMinutesManhattan">05 minutes or less</label><br/>
     	      <input type="radio" onChange={this.handleOptionChange} id="tenMinutesManhattan" name="serviceSpeedManhattan" value="tenMinutesManhattan"/>
-    	      <label for="tenMinutesManhattan">10 minutes</label><br/>
+    	      <label htmlFor="tenMinutesManhattan">10 minutes</label><br/>
     	      <input type="radio" onChange={this.handleOptionChange} id="fifteenMinutesManhattan" name="serviceSpeedManhattan" value="fifteenMinutesManhattan"/>
-    	      <label for="fifteenMinutesManhattan">15 minutes</label><br/>
+    	      <label htmlFor="fifteenMinutesManhattan">15 minutes</label><br/>
     	      <input type="radio" onChange={this.handleOptionChange} id="thirtyMinutesManhattan" name="serviceSpeedManhattan" value="thirtyMinutesManhattan"/>
-    	      <label for="thirtyMinutesManhattan">30 minutes or more</label><br/>
+    	      <label htmlFor="thirtyMinutesManhattan">30 minutes or more</label><br/>
     	      <br/>
     	      <br/>
 
@@ -181,13 +175,13 @@ class App extends Component {
     	      <br/>
 
     	      <input type="radio" onChange={this.handleOptionChange} id="fiveMinutesBlaze" name="serviceSpeedBlaze" value="fiveMinutesBlaze"/>
-    	      <label for="fiveMinutesBlaze">05 minutes or less</label><br/>
+    	      <label htmlFor="fiveMinutesBlaze">05 minutes or less</label><br/>
     	      <input type="radio" onChange={this.handleOptionChange} id="tenMinutesBlaze" name="serviceSpeedBlaze" value="tenMinutesBlaze"/>
-    	      <label for="tenMinutesBlaze">10 minutes</label><br/>
+    	      <label htmlFor="tenMinutesBlaze">10 minutes</label><br/>
     	      <input type="radio" onChange={this.handleOptionChange} id="fifteenMinutesBlaze" name="serviceSpeedBlaze" value="fifteenMinutesBlaze"/>
-    	      <label for="fifteenMinutesBlaze">15 minutes</label><br/>
+    	      <label htmlFor="fifteenMinutesBlaze">15 minutes</label><br/>
     	      <input type="radio" onChange={this.handleOptionChange} id="thirtyMinutesBlaze" name="serviceSpeedBlaze" value="thirtyMinutesBlaze"/>
-    	      <label for="thirtyMinutesBlaze">30 minutes or more</label><br/>
+    	      <label htmlFor="thirtyMinutesBlaze">30 minutes or more</label><br/>
     	      <br/>
     	      <br/>
 
@@ -195,11 +189,11 @@ class App extends Component {
     	      <br/>
 
     	      <input type="radio"  onChange={this.handleOptionChange} id="jc" name="bestLocation" value="jc" />
-    	      <label for="jc">Johnson Center</label><br/>
+    	      <label htmlFor="jc">Johnson Center</label><br/>
     	      <input type="radio"  onChange={this.handleOptionChange} id="mertenHall" name="bestLocation" value="mertenHall" />
-    	      <label for="mertenHall">Merten Hall</label><br/>
+    	      <label htmlFor="mertenHall">Merten Hall</label><br/>
     	      <input type="radio"  onChange={this.handleOptionChange} id="otherLocation" name="bestLocation" value="otherLocation" />
-    	      <label for="otherLocation">Other</label>
+    	      <label htmlFor="otherLocation">Other</label>
             <input type="text" id="otherText" name="bestLocation" style={{display:'none'}} placeholder="Favorite food location" />
     	      <br/>
 
@@ -208,20 +202,13 @@ class App extends Component {
                  submit</Button>
 
     			</div>
-
-          <script>
-            document.getElementById("pageLocation").innerHTML =
-              "Page location is " + window.location.href;
-
-              function goBack() {
-                window.history.back()
-              }
-          </script>
           <div>
+            <Paper elevation={1}>
               {this.state.response?JSON.stringify(this.state.response):
                 (<p>
 
                 </p>)}
+            </Paper>
           </div>
       </div>
     );
