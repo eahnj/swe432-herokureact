@@ -12,7 +12,6 @@ import React, { useState, Component } from "react";
 const publicURL = 'https://swe432-servlet.herokuapp.com/echo';
 const body = `bestPizza=${bestPizza}&serviceSpeedManhattan=${serviceSpeedManhattan}&serviceSpeedBlaze=${serviceSpeedBlaze}&bestLocation=${bestLocation}`;
 var response = null;
-// var setResponse = null;
 var bestPizza = null;
 var serviceSpeedManhattan = null;
 var serviceSpeedBlaze = null;
@@ -49,7 +48,7 @@ const fetchData= async()=>{
         }
       );
       const json = await res.json();
-      response = json;
+      setresponse(json);
     }
 //
 // function App(props) {
@@ -90,6 +89,10 @@ const fetchData= async()=>{
 class App extends Component {
   constructor(props) {
     super(props);
+    bestPizza = null;
+    serviceSpeedManhattan = null;
+    serviceSpeedBlaze = null;
+    bestLocation = null;
     const [response, setResponse] = useState(null);
   }
 
@@ -208,6 +211,12 @@ class App extends Component {
                 window.history.back()
               }
           </script>
+          {response?JSON.stringify(response):
+                  (<React.Fragment>
+                  <Skeleton variant="text" />
+                  <Skeleton variant="circle" width={40} height={40} />
+                  <Skeleton variant="rect" width={200} height={118} />
+                  </React.Fragment>)}
       </div>
     );
   }
