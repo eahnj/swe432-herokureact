@@ -1,4 +1,3 @@
-/
 import React, { Component } from "react";
 import { Paper, Button } from '@material-ui/core';
 
@@ -142,7 +141,6 @@ class App extends Component {
             <input type="text" id="otherText" name="bestLocation" style={{display:'none'}} placeholder="Favorite food location" />
     	      <br/>
 
-    	      <br/>
             <Button onClick={this.fetchData} variant="contained" color="primary" data-something="submit">
                  submit</Button>
 
