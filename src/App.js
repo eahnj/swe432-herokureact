@@ -10,8 +10,7 @@
 import React, { useState, Component } from "react";
 import Skeleton from '@material-ui/lab/Skeleton';
 
-const publicURL = 'https://swe432-servlet.herokuapp.com/echo';
-const body = `bestPizza=${bestPizza}&serviceSpeedManhattan=${serviceSpeedManhattan}&serviceSpeedBlaze=${serviceSpeedBlaze}&bestLocation=${bestLocation}`;
+const publicURL = 'https://swe432-servlet.herokuapp.com';
 // const [response, setResponse] = useState(null);
 var response = null;
 // var setResponse = null;
@@ -20,6 +19,8 @@ var serviceSpeedManhattan = null;
 var serviceSpeedBlaze = null;
 var bestLocation = null;
 // var bestLocationInput = null;
+
+const body = `bestPizza=${bestPizza}&serviceSpeedManhattan=${serviceSpeedManhattan}&serviceSpeedBlaze=${serviceSpeedBlaze}&bestLocation=${bestLocation}`;publ
 export const getLocationUrlData = () => {
   return {
       url:
@@ -29,13 +30,13 @@ export const getLocationUrlData = () => {
       hash: `${window.location.hash}`
   };
 };
-
+export const servicePath ='/echo';
 
 const fetchData= async()=>{
       if(bestLocation === "otherText") {
         bestLocation = document.getElementById('otherText').value;
       }
-      const res = await fetch(publicURL,
+      const res = await fetch({`${getLocationUrlData().url}${servicePath}`},
         {
           method: 'POST', // *GET, POST, PUT, DELETE, etc.
           mode: 'cors', // no-cors, *cors, same-origin

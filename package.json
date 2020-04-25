@@ -1,9 +1,9 @@
 {
-  "name": "swe432-heroku-react",
+  "name": "swe432-react-assign",
   "version": "0.1.0",
   "private": true,
   "proxy": "http://localhost:5000",
-  "homepage": "https://swe432-heroku-react.herokuapp.com/",
+  "homepage": "https://swe432-react-assign.herokuapp.com/",
   "dependencies": {
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.3.2",
