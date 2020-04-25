@@ -217,12 +217,12 @@ class App extends Component {
                 window.history.back()
               }
           </script>
-          {this.state.response?JSON.stringify(this.state.response):
-                (<React.Fragment>
-                <Skeleton variant="text" />
-                <Skeleton variant="circle" width={40} height={40} />
-                <Skeleton variant="rect" width={200} height={118} />
-                </React.Fragment>)}
+          <div>
+              {this.state.response?JSON.stringify(this.state.response):
+                (<p>
+
+                </p>)}
+          </div>
       </div>
     );
   }
