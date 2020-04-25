@@ -149,7 +149,7 @@ class App extends Component {
             <Paper elevation={1} style={
                 {height:100, width:500, wordBreak: "break-all", padding:4}
             } >
-              {this.state.response?JSON.stringify(this.state.response):
+              {this.state.response?JSON.stringify(this.state.response, null, " "):
                 (<p>
 
                 </p>)}
