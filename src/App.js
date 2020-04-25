@@ -21,7 +21,6 @@ var serviceSpeedBlaze = null;
 var bestLocation = null;
 // var bestLocationInput = null;
 
-const body = `bestPizza=${bestPizza}&serviceSpeedManhattan=${serviceSpeedManhattan}&serviceSpeedBlaze=${serviceSpeedBlaze}&bestLocation=${bestLocation}`;
 export const getLocationUrlData = () => {
   return {
       url:
@@ -102,6 +101,8 @@ class App extends Component {
         if(bestLocation === "otherText") {
           bestLocation = document.getElementById('otherText').value;
         }
+        const body = `bestPizza=${bestPizza}&serviceSpeedManhattan=${serviceSpeedManhattan}&serviceSpeedBlaze=${serviceSpeedBlaze}&bestLocation=${bestLocation}`;
+  
         console.log("Before fetch");
         const res = await fetch(url,
           {
