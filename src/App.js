@@ -36,7 +36,8 @@ const fetchData= async()=>{
       if(bestLocation === "otherText") {
         bestLocation = document.getElementById('otherText').value;
       }
-      const res = await fetch({`${getLocationUrlData().url}${servicePath}`},
+      url={`${getLocationUrlData().url}${servicePath}`}
+      const res = await fetch(url,
         {
           method: 'POST', // *GET, POST, PUT, DELETE, etc.
           mode: 'cors', // no-cors, *cors, same-origin
