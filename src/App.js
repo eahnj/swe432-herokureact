@@ -9,7 +9,7 @@
 //
 import React, { useState, Component } from "react";
 
-const publicURL = 'https://swe432tomcat.herokuapp.com/echo';
+const publicURL = 'https://swe432-servlet.herokuapp.com/echo';
 const body = `bestPizza=${bestPizza}&serviceSpeedManhattan=${serviceSpeedManhattan}&serviceSpeedBlaze=${serviceSpeedBlaze}&bestLocation=${bestLocation}`;
 var response = null;
 // var setResponse = null;
