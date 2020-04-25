@@ -11,7 +11,6 @@ import React, { useState, Component } from "react";
 
 const publicURL = 'https://swe432tomcat.herokuapp.com/echo';
 const body = `bestPizza=${bestPizza}&serviceSpeedManhattan=${serviceSpeedManhattan}&serviceSpeedBlaze=${serviceSpeedBlaze}&bestLocation=${bestLocation}`;
-// const [response, setResponse] = useState(null);
 var response = null;
 // var setResponse = null;
 var bestPizza = null;
@@ -89,10 +88,10 @@ const fetchData= async()=>{
 
 
 class App extends Component {
-  // constructor(props) {
-  //   super(props);
-  //   // var otherText = document.getElementById('otherText');
-  // }
+  constructor(props) {
+    super(props);
+    const [response, setResponse] = useState(null);
+  }
 
   handleOptionChange = changeEvent => {
     if(changeEvent.target.name === "bestPizza") {
