@@ -13,7 +13,7 @@ import { Paper, Button, Grid } from '@material-ui/core';
 
 const publicURL = 'https://swe432-servlet.herokuapp.com';
 // const [response, setResponse] = useState(null);
-var response = null;
+// var response = null;
 // var setResponse = null;
 var bestPizza = null;
 var serviceSpeedManhattan = null;
@@ -122,7 +122,7 @@ class App extends Component {
         );
         const json = await res.json();
         console.log(json)
-        response = json;
+        this.state.response = json;
   }
 
   render() {
@@ -217,7 +217,7 @@ class App extends Component {
                 window.history.back()
               }
           </script>
-          {response?JSON.stringify(response):
+          {this.state.response?JSON.stringify(this.state.response):
                 (<React.Fragment>
                 <Skeleton variant="text" />
                 <Skeleton variant="circle" width={40} height={40} />
