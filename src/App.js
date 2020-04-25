@@ -35,28 +35,6 @@ export const servicePath ='/echo';
 
 const url = `${getLocationUrlData().url}${servicePath}`;
 
-const fetchData= async()=>{
-      if(bestLocation === "otherText") {
-        bestLocation = document.getElementById('otherText').value;
-      }
-      const res = await fetch(url,
-        {
-          method: 'POST', // *GET, POST, PUT, DELETE, etc.
-          mode: 'cors', // no-cors, *cors, same-origin
-          cache: 'no-cache', // *default, no-cache, reload, force-cache, only-if-cached
-          //credentials: 'same-origin', // include, *same-origin, omit
-          headers: {
-            // 'Content-Type': 'application/json'
-            'Content-Type': 'application/x-www-form-urlencoded',
-          },
-          //redirect: 'follow', // manual, *follow, error
-          //referrerPolicy: 'no-referrer', // no-referrer, *client
-          body  // body data type must match "Content-Type" header
-        }
-      );
-      const json = await res.json();
-      response = json;
-    }
 //
 // function App(props) {
 //   const [weekDay, setWeekDay] = React.useState("Monday");
@@ -119,6 +97,29 @@ class App extends Component {
       }
     }
   };
+
+  fetchData= async()=>{
+        if(bestLocation === "otherText") {
+          bestLocation = document.getElementById('otherText').value;
+        }
+        const res = await fetch(url,
+          {
+            method: 'POST', // *GET, POST, PUT, DELETE, etc.
+            mode: 'cors', // no-cors, *cors, same-origin
+            cache: 'no-cache', // *default, no-cache, reload, force-cache, only-if-cached
+            //credentials: 'same-origin', // include, *same-origin, omit
+            headers: {
+              // 'Content-Type': 'application/json'
+              'Content-Type': 'application/x-www-form-urlencoded',
+            },
+            //redirect: 'follow', // manual, *follow, error
+            //referrerPolicy: 'no-referrer', // no-referrer, *client
+            body  // body data type must match "Content-Type" header
+          }
+        );
+        const json = await res.json();
+        response = json;
+  }
 
 
   render() {
