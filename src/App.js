@@ -134,12 +134,9 @@ class App extends Component {
           <h2> Assignment 7 </h2>
         </div>
         <div>
-          <br/>
     			<p>
           Assignment 7 Collaboration Summary: Abhilaash worked on the React JS front end and Edwin worked on the tomcat backend.
     			</p>
-          <br/>
-          <p id="pageLocation"></p>
     			<p>
           <br/>
     			Please fill out the following survey to the best of your ability and answer all of the questions.
@@ -202,7 +199,7 @@ class App extends Component {
     			</div>
           <div>
             <Paper elevation={1} style={
-                {height:200, width:200, wordBreak: "break-all", padding:4}
+                {height:100, width:500, wordBreak: "break-all", padding:4}
             } >
               {this.state.response?JSON.stringify(this.state.response):
                 (<p>
