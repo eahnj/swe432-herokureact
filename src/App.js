@@ -73,7 +73,6 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {response: null};
-    // var otherText = document.getElementById('otherText');
   }
 
   handleOptionChange = changeEvent => {
@@ -98,8 +97,9 @@ class App extends Component {
   };
 
   fetchData = async()=>{
-        if(bestLocation === "otherText") {
+        if(bestLocation === "otherLocation") {
           bestLocation = document.getElementById('otherText').value;
+          console.log(document.getElementById('otherText').value)
         }
         const body = `bestPizza=${bestPizza}&serviceSpeedManhattan=${serviceSpeedManhattan}&serviceSpeedBlaze=${serviceSpeedBlaze}&bestLocation=${bestLocation}`;
 
