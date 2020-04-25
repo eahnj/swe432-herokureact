@@ -212,11 +212,6 @@ class App extends Component {
               }
           </script>
           {response?JSON.stringify(response):
-                  (<React.Fragment>
-                  <Skeleton variant="text" />
-                  <Skeleton variant="circle" width={40} height={40} />
-                  <Skeleton variant="rect" width={200} height={118} />
-                  </React.Fragment>)}
       </div>
     );
   }
