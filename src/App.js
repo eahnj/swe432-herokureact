@@ -102,6 +102,7 @@ class App extends Component {
         if(bestLocation === "otherText") {
           bestLocation = document.getElementById('otherText').value;
         }
+        console.log("Before fetch");
         const res = await fetch(url,
           {
             method: 'POST', // *GET, POST, PUT, DELETE, etc.
@@ -118,6 +119,7 @@ class App extends Component {
           }
         );
         const json = await res.json();
+        console.log(json)
         response = json;
   }
 
