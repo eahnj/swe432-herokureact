@@ -48,7 +48,7 @@ const fetchData= async()=>{
         }
       );
       const json = await res.json();
-      setresponse(json);
+      setResponse(json);
     }
 //
 // function App(props) {
