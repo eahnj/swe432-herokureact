@@ -84,7 +84,7 @@ class App extends Component {
         </div>
         <div>
     			<p>
-          Assignment 7 Collaboration Summary: Abhilaash worked on the React JS front end and Edwin worked on the tomcat backend.
+          Assignment 7 Collaboration Summary: Abhilaash worked on the React JS front end and Edwin worked on the tomcat backend. Github Repos: https://github.com/eahnj/swe432-herokureact and https://github.com/eahnj/swe432-servlet (the echo file)
     			</p>
     			<p>
           <br/>
